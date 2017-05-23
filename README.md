@@ -8,8 +8,6 @@ The ESP-8266 has a single analog to digital converter (ADC). To read external vo
 
 ⚠ **Warning! Earlier versions of the ESP-8266 had a maximum operating voltage of 1,0 volt on pin A0, so please check your board before testing your circuit.**
 
-![LD1117AV](GP2Y0A41SK0F%20Pinouts.png)
-
-The following circuit diagram explains how easy you can integrate the distance sensor to your project.
+The following circuit diagram explains how connect the distance sensor to your ESP-8266.
 
 ![circuit](Circuit.png)
