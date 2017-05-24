@@ -1,13 +1,13 @@
 // This program allows the ESP-8266 to read data from GP2Y0A41SK0F distance measuring sensor
 
 // Sensor calibration - You can change these values
-const int minimum_position_analog = 818;   // Your sensor analog reading at 4 cm (typical value is 822)
-const int maximum_position_analog = 102; // Your sensor analog reading at 30 cm (typical value is 124)
+const int minimum_position_analog = 818;  // Your sensor analog reading at 4 cm (typical value is 822)
+const int maximum_position_analog = 102;  // Your sensor analog reading at 30 cm (typical value is 124)
 
 // Sensor constants
-const float minimum_position_meter = 0.04;   // Sensor minimum position (fixed at 4 cm)
-const float maximum_position_meter = 0.30; // Sensor maximum position (fixed at 30 cm)
-const float sensor_slope = ((1.0/(minimum_position_meter+0.0042)) - (1.0/(maximum_position_meter+0.0042))) / (minimum_position_analog - maximum_position_analog);
+const float minimum_position_meter = 0.04;  // Sensor minimum position (fixed at 4 cm)
+const float maximum_position_meter = 0.30;  // Sensor maximum position (fixed at 30 cm)
+const float sensor_slope = ((1.0/(minimum_position_meter + 0.0042)) - (1.0/(maximum_position_meter + 0.0042))) / (minimum_position_analog - maximum_position_analog);
 const float sensor_yintercept = (1.0/(minimum_position_meter + 0.0042)) - (sensor_slope * minimum_position_analog);
 
 // Global variables
