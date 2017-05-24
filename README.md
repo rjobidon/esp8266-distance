@@ -22,8 +22,9 @@ const int maximum_position_analog = 102;  // Your sensor analog reading at 30 cm
 // Sensor constants
 const float minimum_position_meter = 0.04;  // Sensor minimum position (fixed at 4 cm)
 const float maximum_position_meter = 0.30;  // Sensor maximum position (fixed at 30 cm)
-const float sensor_slope = ((1.0/(minimum_position_meter + 0.0042)) - (1.0/(maximum_position_meter + 0.0042))) / (minimum_position_analog - maximum_position_analog);
-const float sensor_yintercept = (1.0/(minimum_position_meter + 0.0042)) - (sensor_slope * minimum_position_analog);
+const float sensor_offset = 0.0042;         // Sensor offset position (fixed at 0.42 cm)
+const float sensor_slope = ((1.0/(minimum_position_meter + sensor_offset)) - (1.0/(maximum_position_meter + sensor_offset))) / (minimum_position_analog - maximum_position_analog);
+const float sensor_yintercept = (1.0/(minimum_position_meter + sensor_offset)) - (sensor_slope * minimum_position_analog);
 
 // Global variables
 int current_position_analog = 0;
@@ -53,7 +54,7 @@ float convertPosition(int analogPosition) {
 
   // Within sensor range
   else {
-    realPosition = (1.0 / ((sensor_slope * analogPosition) + sensor_yintercept)) - 0.0042;
+    realPosition = (1.0 / ((sensor_slope * analogPosition) + sensor_yintercept)) - sensor_offset;
   }
 
   // Return value
