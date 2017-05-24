@@ -84,3 +84,4 @@ void loop() {
   printSensorData();
 }
 ```
+![Serial Monitor](Output.png)
