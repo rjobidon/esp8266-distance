@@ -53,7 +53,7 @@ void readSensorData() {
   current_position_meter = convertPosition(current_position_analog);
 }
 
-// Send current readings to serial monitor
+// Print sensor readings to serial monitor
 void printSensorData() {
   Serial.print("Distance: ");
   Serial.print(100.0 * current_position_meter);
